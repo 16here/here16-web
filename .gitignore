@@ -1,0 +1,13 @@
+# 依赖与构建产物（绝不能提交）
+node_modules/
+dist/
+
+# 日志与临时文件
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.iml

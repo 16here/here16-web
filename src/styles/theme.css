@@ -1,0 +1,70 @@
+/* =====================================================================
+ * 商城全局主题（电商风格，主色淘宝橙 #FF5000）
+ *
+ * 通过覆盖 Element Plus 的 CSS 变量实现组件库级换肤：
+ * 按钮、链接、聚焦态、标签等所有组件会自动跟随主色。
+ * ===================================================================== */
+:root {
+  /* ---------- 商城品牌色 ---------- */
+  --mall-primary: #ff5000;           /* 主色：电商橙 */
+  --mall-primary-dark: #e04500;      /* 主色深（hover / active） */
+  --mall-primary-light: #fff1eb;     /* 主色浅（选中底色 / 提示条） */
+  --mall-price: #ff5000;             /* 价格色 */
+
+  /* ---------- 覆盖 Element Plus 主色（组件级换肤） ---------- */
+  --el-color-primary: #ff5000;
+  --el-color-primary-dark-2: #e04500;
+  --el-color-primary-light-3: #ff7a3d;
+  --el-color-primary-light-5: #ffa980;
+  --el-color-primary-light-7: #ffd0b8;
+  --el-color-primary-light-8: #ffe0d0;
+  --el-color-primary-light-9: #fff1eb;
+}
+
+/* ---------- 全局基础 ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- 通用工具类 ---------- */
+/* 页面主体容器 */
+.page-container {
+  max-width: 1230px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* 价格样式：电商红色 */
+.price {
+  color: var(--mall-price);
+  font-weight: 700;
+}
+
+.price::before {
+  content: '¥';
+  font-size: 12px;
+  margin-right: 1px;
+}
+
+/* 主色文本 */
+.text-primary {
+  color: var(--mall-primary);
+}
