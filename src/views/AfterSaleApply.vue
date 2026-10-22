@@ -135,8 +135,8 @@ async function loadOrders() {
     // 一次性拉 100 条，覆盖可选订单
     const res = await getOrders({ page: 1, pageSize: 100 })
     orders.value = res.data.list || []
-    // 支持从订单详情页带 orderId 直接定位
-    const preset = Number(route.query.orderId)
+    // 支持从订单详情页带 orderId 直接定位（保持字符串原样：o.id 是字符串雪花 ID，Number() 会丢精度）
+    const preset = route.query.orderId
     if (preset && orders.value.some((o) => o.id === preset)) {
       form.orderId = preset
       onOrderChange()

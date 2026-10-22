@@ -52,7 +52,8 @@ const route = useRoute()
 const router = useRouter()
 
 const status = computed(() => route.query.status || 'pending')
-const orderId = Number(route.query.orderId)
+// 订单 ID 保持字符串原样（雪花 ID 19 位，Number() 会丢精度导致回跳详情报"订单不存在"）
+const orderId = route.query.orderId
 const amount = route.query.amount
 
 function formatAmount(value) {

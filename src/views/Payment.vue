@@ -99,7 +99,8 @@ import { createPayment, mockCallback } from '../api/payment'
 const route = useRoute()
 const router = useRouter()
 
-const orderId = Number(route.params.orderId)
+// 订单 ID 保持字符串原样透传（雪花 ID 19 位，Number() 会丢精度导致后端查不到"订单不存在"）
+const orderId = route.params.orderId
 const order = ref(null)
 const loading = ref(false)
 const creating = ref(false)

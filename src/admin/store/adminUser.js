@@ -28,13 +28,16 @@ export const useAdminUserStore = defineStore('adminUser', {
     /**
      * 管理员登录（复用用户登录接口）。
      *
-     * @param payload { username, password }（表单字段名 username，接口字段名 account，这里做映射）
+     * @param payload { username, password, captchaId, captchaCode }（表单字段名 username，
+     *   接口字段名 account，这里做映射；验证码字段必须原样透传，否则后端校验必失败）
      * 后端返回 { token, user }，user.role 为真实角色（阶段 5）。
      */
     async login(payload) {
       const res = await adminLogin({
         account: payload.username,
-        password: payload.password
+        password: payload.password,
+        captchaId: payload.captchaId,
+        captchaCode: payload.captchaCode
       })
       this.token = res.data.token
       this.adminInfo = res.data.user || res.data.adminInfo || null
